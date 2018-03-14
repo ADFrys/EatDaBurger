@@ -1,19 +1,41 @@
-<img src="../public/assets/img/burger.png">
 
 <h1>Eat The Burger!</h1>
 
+<ul>
   {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block devoured=false}}
-    {{/if}}
+      {{#unless devoured}}
+    <li id="uneaten">
+      <p>
+        {{this.id}}. {{this.burger_name}}
+        <button data-burgerid="{{this.id}}" class="devourburger">Devour it!</button>
+      </p>
+    </li>
+  {{/unless}}
   {{/each}}
+</ul>
+
 
 <form class="create-form">
   
   <div class="form-group">
-  	<label for="burger">Burger: </label>
-  	<input type="text" id="burger" name="name">
+  	<label for="burger">Add a Burger: </label>
+  	<textarea type="text" id="burger" name="name" rows="4" cols="40"></textarea>
   </div>
 
 <button type="submit">Submit</button>
 </form>
+
+<script type="text/javascript">
+  $(".devourburger").on("click", function(event) {
+    var id = $(this).data("burgerid");
+
+    $.ajax("/burgers/" + id, {
+      type: "PUT"
+    }).then(
+      function() {
+        console.log("change status ", id);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });

@@ -1,0 +1,20 @@
+html {
+  background-color: yellow;
+  text-align: center;
+}
+
+#uneaten {
+  padding: 5px;
+  margin: 5px;
+  background-color: white;
+  text-align: left;
+  width: 45%;
+  list-style-type: none;
+}
+
+#eaten {
+  text-align: right;
+  width: 45%;
+  color: gray;
+  background-color: light gray;
+}
