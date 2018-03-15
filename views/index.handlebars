@@ -1,6 +1,7 @@
 
 <h1>Eat The Burger!</h1>
 
+<div class="burgers">
 <ul>
   {{#each burgers}}
       {{#unless devoured}}
@@ -14,10 +15,26 @@
   {{/each}}
 </ul>
 
+<ul>
+  <h3>Devoured Burgers</h3>
+  {{#each burgers}}
+      {{#if devoured}}
+      <li id="eaten">
+        <p>
+        {{this.id}}. {{this.burger_name}}
+        </p>
+      </li>
+  {{/if}}
+  {{/each}}
+</ul>
 
+</div>
+<div class="form-area">
+  
 <form class="create-form">
   	<label for="addburger">Add a Burger: </label>
-  	<textarea id="addburger" type="text" name="burger_name" rows="4" cols="40"></textarea>
-
+  	<br><textarea id="addburger" type="text" name="burger_name" rows="4" cols="40"></textarea>
+<br>
 <button id="submit" type="submit">Submit</button>
 </form>
+</div>

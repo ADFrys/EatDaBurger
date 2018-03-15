@@ -21,17 +21,24 @@ $(function() {
       })
   });
 
-  $(".devourburger").on("click", function(event) {
+    $(".devourburger").on("click", function(event) {
     var id = $(this).data("burgerid");
 
-    $.ajax("/burgers/" + id, {
-      type: "PUT"
-    }).then(
-      function() {
-        console.log("change status ", id);
-        // Reload the page to get the updated list
-        // location.reload();
-      }
-    );
+      var devouredChange = {
+        devoured: "1"
+      };
+
+      $.ajax("/api/burgers/" + id, {
+        type: "PUT",
+        data: devouredChange
+      }).then(
+        function() {
+          console.log("You ate the burger");
+          location.reload();
+        }
+      )
+    })
+
+
   });
-});
+

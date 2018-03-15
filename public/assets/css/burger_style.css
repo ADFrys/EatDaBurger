@@ -1,20 +1,56 @@
 html {
-  background-color: yellow;
+  background-image: url("../img/food.png");
   text-align: center;
+  font-family: Comic Sans MS;
+}
+
+.burgers {
+  display: flex;
+  justify-content: space-around;
 }
 
 #uneaten {
   padding: 5px;
   margin: 5px;
   background-color: white;
-  text-align: left;
-  width: 45%;
   list-style-type: none;
 }
 
 #eaten {
-  text-align: right;
-  width: 45%;
+  padding: 5px;
+  margin: 5px;
   color: gray;
-  background-color: light gray;
+  background-color: #E8E8E8;
+  list-style-type: none;
+  text-align: center;
+}
+
+h3 {
+  text-decoration: underline;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+label {
+  text-align: center;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+button {
+  font-weight: bold;
+  background-color: #B0E0E6;
+  border: 1px black solid;
+  height: 20px;
+  margin-left: 5px;
+}
+.create-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#submit {
+  margin-left: 15px;
+  height: 30px;
 }
