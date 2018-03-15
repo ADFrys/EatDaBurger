@@ -1,18 +1,18 @@
 
 <h1>Eat The Burger!</h1>
 
-<ol>
+<ul>
   {{#each burgers}}
       {{#unless devoured}}
-      <p>
       <li id="uneaten">
-        {{this.burger_name}}
+        <p>
+        {{this.id}}. {{this.burger_name}}
         <button data-burgerid="{{this.id}}" class="devourburger">Devour it!</button>
+        </p>
       </li>
-      </p>
   {{/unless}}
   {{/each}}
-</ol>
+</ul>
 
 
 <form class="create-form">
