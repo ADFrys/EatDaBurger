@@ -4,7 +4,6 @@ $(function() {
     event.preventDefault();
     console.log($("#addburger").val() + " val");
 
-
     var newBurger = {
       burger_name: $("#addburger").val().trim(),
       devoured: "0"
@@ -19,7 +18,7 @@ $(function() {
         console.log("added new burger");
         location.reload();
       })
-  });
+    });
 
     $(".devourburger").on("click", function(event) {
     var id = $(this).data("burgerid");
@@ -38,7 +37,5 @@ $(function() {
         }
       )
     })
-
-
+    
   });
-

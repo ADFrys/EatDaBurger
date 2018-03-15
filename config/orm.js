@@ -1,15 +1,15 @@
 var connection = require("../config/connection.js");
 
+// Function that prints appropriate number of question marks for query
 function printQuestionMarks(num) {
   var arr = [];
-
   for (var i = 0; i < num; i++) {
     arr.push("?");
   }
-
   return arr.toString();
 }
 
+// Function that converts object to array for Sql
 function objToSql(ob) {
   var arr = [];
 
@@ -25,11 +25,12 @@ function objToSql(ob) {
       arr.push(key + "=" + value);
     }
   }
-
   return arr.toString();
 }
 
+// ORM
 var orm = {
+  // selectAll method that will select all burgers from the sql table
   selectAll: function(tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function(err, result) {
@@ -39,6 +40,7 @@ var orm = {
       cb(result);
     });
   },
+  // InsertOne is a method that will add a new burger
   insertOne: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
     
@@ -58,6 +60,7 @@ var orm = {
       cb(result);
     });
   },
+  // updateOne is a method that will set the burger devoured column to one (devoured)
   updateOne: function(table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 
@@ -73,7 +76,6 @@ var orm = {
       cb(result);
     });
   }
-
 };
 
 module.exports = orm;

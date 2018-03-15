@@ -4,8 +4,7 @@ var router = express.Router();
 
 var burger = require("../models/burger.js");
 
-
-
+// Get request to display the burgers
 router.get("/index", function(req, res) {
   burger.selectAll(function(data) {
     var hbsObject = {
@@ -16,6 +15,7 @@ router.get("/index", function(req, res) {
   });
 });
 
+// Post request to add the new burger
 router.post("/api/burgers", function(req, res) {
 
   burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(result) {
@@ -23,6 +23,7 @@ router.post("/api/burgers", function(req, res) {
   });
 });
 
+// Put request to update the burger devoured status
 router.put("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
   console.log("condition", condition);
@@ -38,8 +39,5 @@ router.put("/api/burgers/:id", function(req, res) {
     }
   });
 });
-
-
-
 
 module.exports = router;
